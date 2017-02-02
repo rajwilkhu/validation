@@ -7,7 +7,7 @@ System.register(["./property-info", "./validate-binding-behavior", "./validate-r
      */
     function configure(frameworkConfig, callback) {
         // the fluent rule definition API needs the parser to translate messages
-        // to interpolation expressions. 
+        // to interpolation expressions.
         var parser = frameworkConfig.container.get(validation_parser_1.ValidationParser);
         validation_rules_1.ValidationRules.initialize(parser);
         // configure...
@@ -17,7 +17,9 @@ System.register(["./property-info", "./validate-binding-behavior", "./validate-r
         }
         config.apply(frameworkConfig.container);
         // globalize the behaviors.
-        frameworkConfig.globalResources('./validate-binding-behavior', './validation-errors-custom-attribute', './validation-renderer-custom-attribute');
+        if (frameworkConfig.globalResources) {
+            frameworkConfig.globalResources('./validate-binding-behavior', './validation-errors-custom-attribute', './validation-renderer-custom-attribute');
+        }
     }
     exports_1("configure", configure);
     var validator_1, standard_validator_1, validation_parser_1, validation_rules_1, AureliaValidationConfiguration;
@@ -28,8 +30,7 @@ System.register(["./property-info", "./validate-binding-behavior", "./validate-r
     function exportStar_1(m) {
         var exports = {};
         for (var n in m) {
-            if (n !== "default" && !exportedNames_1.hasOwnProperty(n))
-                exports[n] = m[n];
+            if (n !== "default" && !exportedNames_1.hasOwnProperty(n)) exports[n] = m[n];
         }
         exports_1(exports);
     }

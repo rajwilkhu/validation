@@ -46,7 +46,7 @@ define(["require", "exports", "./property-info", "./validate-binding-behavior", 
      */
     function configure(frameworkConfig, callback) {
         // the fluent rule definition API needs the parser to translate messages
-        // to interpolation expressions. 
+        // to interpolation expressions.
         var parser = frameworkConfig.container.get(validation_parser_2.ValidationParser);
         validation_rules_2.ValidationRules.initialize(parser);
         // configure...
@@ -56,7 +56,9 @@ define(["require", "exports", "./property-info", "./validate-binding-behavior", 
         }
         config.apply(frameworkConfig.container);
         // globalize the behaviors.
-        frameworkConfig.globalResources('./validate-binding-behavior', './validation-errors-custom-attribute', './validation-renderer-custom-attribute');
+        if (frameworkConfig.globalResources) {
+            frameworkConfig.globalResources('./validate-binding-behavior', './validation-errors-custom-attribute', './validation-renderer-custom-attribute');
+        }
     }
     exports.configure = configure;
 });

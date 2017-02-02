@@ -38,6 +38,7 @@ System.register(["aurelia-dependency-injection", "aurelia-pal", "./validation-co
                         return target;
                     }
                     // custom element or custom attribute
+                    // tslint:disable-next-line:prefer-const
                     for (var i = 0, ii = view.controllers.length; i < ii; i++) {
                         var controller = view.controllers[i];
                         if (controller.viewModel === target) {
@@ -69,20 +70,17 @@ System.register(["aurelia-dependency-injection", "aurelia-pal", "./validation-co
                     controller.registerBinding(binding, target, rules);
                     binding.validationController = controller;
                     var trigger = this.getValidateTrigger(controller);
-                    /* tslint:disable:no-bitwise */
+                    // tslint:disable-next-line:no-bitwise
                     if (trigger & validate_trigger_1.validateTrigger.change) {
-                        /* tslint:enable:no-bitwise */
                         binding.standardUpdateSource = binding.updateSource;
-                        /* tslint:disable:only-arrow-functions */
+                        // tslint:disable-next-line:only-arrow-functions
                         binding.updateSource = function (value) {
-                            /* tslint:enable:only-arrow-functions */
                             this.standardUpdateSource(value);
                             this.validationController.validateBinding(this);
                         };
                     }
-                    /* tslint:disable:no-bitwise */
+                    // tslint:disable-next-line:no-bitwise
                     if (trigger & validate_trigger_1.validateTrigger.blur) {
-                        /* tslint:enable:no-bitwise */
                         binding.validateBlurHandler = function () {
                             _this.taskQueue.queueMicroTask(function () { return controller.validateBinding(binding); });
                         };
@@ -91,9 +89,8 @@ System.register(["aurelia-dependency-injection", "aurelia-pal", "./validation-co
                     }
                     if (trigger !== validate_trigger_1.validateTrigger.manual) {
                         binding.standardUpdateTarget = binding.updateTarget;
-                        /* tslint:disable:only-arrow-functions */
+                        // tslint:disable-next-line:only-arrow-functions
                         binding.updateTarget = function (value) {
-                            /* tslint:enable:only-arrow-functions */
                             this.standardUpdateTarget(value);
                             this.validationController.resetBinding(this);
                         };

@@ -22,8 +22,9 @@ export class ValidateBindingBehaviorBase {
             return target;
         }
         // custom element or custom attribute
+        // tslint:disable-next-line:prefer-const
         for (let i = 0, ii = view.controllers.length; i < ii; i++) {
-            let controller = view.controllers[i];
+            const controller = view.controllers[i];
             if (controller.viewModel === target) {
                 const element = controller.container.get(DOM.Element);
                 if (element) {
@@ -52,20 +53,17 @@ export class ValidateBindingBehaviorBase {
         controller.registerBinding(binding, target, rules);
         binding.validationController = controller;
         const trigger = this.getValidateTrigger(controller);
-        /* tslint:disable:no-bitwise */
+        // tslint:disable-next-line:no-bitwise
         if (trigger & validateTrigger.change) {
-            /* tslint:enable:no-bitwise */
             binding.standardUpdateSource = binding.updateSource;
-            /* tslint:disable:only-arrow-functions */
+            // tslint:disable-next-line:only-arrow-functions
             binding.updateSource = function (value) {
-                /* tslint:enable:only-arrow-functions */
                 this.standardUpdateSource(value);
                 this.validationController.validateBinding(this);
             };
         }
-        /* tslint:disable:no-bitwise */
+        // tslint:disable-next-line:no-bitwise
         if (trigger & validateTrigger.blur) {
-            /* tslint:enable:no-bitwise */
             binding.validateBlurHandler = () => {
                 this.taskQueue.queueMicroTask(() => controller.validateBinding(binding));
             };
@@ -74,9 +72,8 @@ export class ValidateBindingBehaviorBase {
         }
         if (trigger !== validateTrigger.manual) {
             binding.standardUpdateTarget = binding.updateTarget;
-            /* tslint:disable:only-arrow-functions */
+            // tslint:disable-next-line:only-arrow-functions
             binding.updateTarget = function (value) {
-                /* tslint:enable:only-arrow-functions */
                 this.standardUpdateTarget(value);
                 this.validationController.resetBinding(this);
             };

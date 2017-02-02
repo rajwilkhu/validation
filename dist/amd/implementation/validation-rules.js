@@ -356,7 +356,7 @@ define(["require", "exports", "./util", "./rules", "./validation-messages"], fun
             if (this.parser) {
                 return;
             }
-            throw new Error("Did you forget to add \".plugin('aurelia-validation)\" to your main.js?");
+            throw new Error("Did you forget to add \".plugin('aurelia-validation')\" to your main.js?");
         };
         return FluentEnsure;
     }());

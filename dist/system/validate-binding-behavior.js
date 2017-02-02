@@ -28,7 +28,7 @@ System.register(["aurelia-task-queue", "./validate-trigger", "./validate-binding
             ValidateBindingBehavior = (function (_super) {
                 __extends(ValidateBindingBehavior, _super);
                 function ValidateBindingBehavior() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 ValidateBindingBehavior.prototype.getValidateTrigger = function (controller) {
                     return controller.validateTrigger;
@@ -45,7 +45,7 @@ System.register(["aurelia-task-queue", "./validate-trigger", "./validate-binding
             ValidateManuallyBindingBehavior = (function (_super) {
                 __extends(ValidateManuallyBindingBehavior, _super);
                 function ValidateManuallyBindingBehavior() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 ValidateManuallyBindingBehavior.prototype.getValidateTrigger = function () {
                     return validate_trigger_1.validateTrigger.manual;
@@ -61,7 +61,7 @@ System.register(["aurelia-task-queue", "./validate-trigger", "./validate-binding
             ValidateOnBlurBindingBehavior = (function (_super) {
                 __extends(ValidateOnBlurBindingBehavior, _super);
                 function ValidateOnBlurBindingBehavior() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 ValidateOnBlurBindingBehavior.prototype.getValidateTrigger = function () {
                     return validate_trigger_1.validateTrigger.blur;
@@ -78,7 +78,7 @@ System.register(["aurelia-task-queue", "./validate-trigger", "./validate-binding
             ValidateOnChangeBindingBehavior = (function (_super) {
                 __extends(ValidateOnChangeBindingBehavior, _super);
                 function ValidateOnChangeBindingBehavior() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 ValidateOnChangeBindingBehavior.prototype.getValidateTrigger = function () {
                     return validate_trigger_1.validateTrigger.change;
@@ -95,7 +95,7 @@ System.register(["aurelia-task-queue", "./validate-trigger", "./validate-binding
             ValidateOnChangeOrBlurBindingBehavior = (function (_super) {
                 __extends(ValidateOnChangeOrBlurBindingBehavior, _super);
                 function ValidateOnChangeOrBlurBindingBehavior() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 ValidateOnChangeOrBlurBindingBehavior.prototype.getValidateTrigger = function () {
                     return validate_trigger_1.validateTrigger.changeOrBlur;

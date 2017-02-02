@@ -51,7 +51,9 @@ var ValidationParser = (function () {
         return new Conditional(new Binary('||', new Binary('===', part, this.nullExpression), new Binary('===', part, this.undefinedExpression)), this.emptyStringExpression, new CallMember(part, 'toString', []));
     };
     ValidationParser.prototype.getAccessorExpression = function (fn) {
-        var classic = /^function\s*\([$_\w\d]+\)\s*\{\s*(?:"use strict";)?\s*return\s+[$_\w\d]+\.([$_\w\d]+)\s*;?\s*\}$/;
+        /* tslint:disable:max-line-length */
+        var classic = /^function\s*\([$_\w\d]+\)\s*\{(?:\s*"use strict";)?\s*(?:[$_\w\d.['"\]+;]+)?\s*return\s+[$_\w\d]+\.([$_\w\d]+)\s*;?\s*\}$ /;
+        /* tslint:enable:max-line-length */
         var arrow = /^\(?[$_\w\d]+\)?\s*=>\s*[$_\w\d]+\.([$_\w\d]+)$/;
         var match = classic.exec(fn) || arrow.exec(fn);
         if (match === null) {

@@ -5,9 +5,8 @@ define(["require", "exports", "aurelia-binding"], function (require, exports, au
         if (value === null || value === undefined || value instanceof Object) {
             return value;
         }
-        /* tslint:disable */
+        // tslint:disable-next-line:max-line-length
         throw new Error("The '" + objectExpression + "' part of '" + expression + "' evaluates to " + value + " instead of an object, null or undefined.");
-        /* tslint:enable */
     }
     /**
      * Retrieves the object and property name for the specified expression.

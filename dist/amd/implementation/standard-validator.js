@@ -53,6 +53,7 @@ define(["require", "exports", "aurelia-templating", "../validator", "../validate
         };
         StandardValidator.prototype.getMessage = function (rule, object, value) {
             var expression = rule.message || this.messageProvider.getMessage(rule.messageKey);
+            // tslint:disable-next-line:prefer-const
             var _a = rule.property, propertyName = _a.name, displayName = _a.displayName;
             if (propertyName !== null) {
                 displayName = this.messageProvider.getDisplayName(propertyName, displayName);
@@ -63,6 +64,8 @@ define(["require", "exports", "aurelia-templating", "../validator", "../validate
                 $value: value,
                 $object: object,
                 $config: rule.config,
+                // returns the name of a given property, given just the property name (irrespective of the property's displayName)
+                // split on capital letters, first letter ensured to be capitalized
                 $getDisplayName: this.getDisplayName
             };
             return expression.evaluate({ bindingContext: object, overrideContext: overrideContext }, this.lookupFunctions);

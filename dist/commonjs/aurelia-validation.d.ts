@@ -39,5 +39,5 @@ export declare class AureliaValidationConfiguration {
  */
 export declare function configure(frameworkConfig: {
     container: Container;
-    globalResources: (...resources: string[]) => any;
+    globalResources?: (...resources: string[]) => any;
 }, callback?: (config: AureliaValidationConfiguration) => void): void;
